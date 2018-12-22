@@ -1,5 +1,5 @@
-import React from 'react'
-import { APP_TITLE, NAV_ITEMS } from '../constants'
+import React from "react"
+import { APP_TITLE, NAV_ITEMS } from "../constants"
 
 const Nav = () => {
   return (
@@ -8,7 +8,7 @@ const Nav = () => {
         <a href="#" className="header item">
           { APP_TITLE }
         </a>
-        { NAV_ITEMS.map(item => <a href={item.href} className="item">{item.name}</a> )}
+        { NAV_ITEMS.map((key, item) => <a key={key} href={item.href} className="item">{item.name}</a> )}
       </div>
     </div>
   )
