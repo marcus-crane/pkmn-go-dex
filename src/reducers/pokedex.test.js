@@ -42,4 +42,25 @@ describe("pokedex reducer", () => {
     }
     expect(pokedex(store, action)).toEqual(expected)
   })
+
+  it("should handle TOGGLE_CAPTURE_STATUS", () => {
+    const capturedPokemon = { ...MOCK_POKEDEX_ENTRY.Bulbasaur, captured: true }
+    const uncapturedPokemon = { ...MOCK_POKEDEX_ENTRY.Bulbasaur, captured: false }
+    expect(capturedPokemon.captured).toEqual(!uncapturedPokemon.captured) // Just making sure that we have our setup correct
+    const store = {
+      pokemon: {
+        Bulbasaur: uncapturedPokemon
+      }
+    }
+    const action = {
+      type: actions.TOGGLE_CAPTURE_STATUS,
+      pokemon: "Bulbasaur"
+    }
+    const expected = {
+      pokemon: {
+        Bulbasaur: capturedPokemon
+      }
+    }
+    expect(pokedex(store, action)).toEqual(expected)
+  })
 })

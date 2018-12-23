@@ -31,6 +31,15 @@ describe("regular actions", () => {
     }
     expect(actions.fetchPokedexFailure(error)).toEqual(expectedAction)
   })
+
+  it("should create TOGGLE_CAPTURE_STATUS upon clicking the Captured button", () => {
+    const pokemon = MOCK_POKEDEX_ENTRY.Bulbasaur
+    const expectedAction = {
+      type: actions.TOGGLE_CAPTURE_STATUS,
+      pokemon
+    }
+    expect(actions.toggleCaptureStatus(pokemon)).toEqual(expectedAction)
+  })
 })
 
 describe("async actions", () => {

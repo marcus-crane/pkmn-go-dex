@@ -6,6 +6,7 @@ export const FETCH_POKEDEX_FAILURE = "FETCH_POKEDEX_FAILURE"
 export const FETCH_POKEDEX_REQUEST = "FETCH_POKEDEX_REQUEST"
 export const FETCH_POKEDEX_SUCCESS = "FETCH_POKEDEX_SUCCESS"
 export const TOGGLE_CAPTURE_STATUS = "TOGGLE_CAPTURE_STATUS"
+export const TOGGLE_HOVERING = "TOGGLE_HOVERING"
 
 export const fetchPokedexRequest = () => {
   return {
@@ -45,6 +46,13 @@ export const fetchPokedex = () => {
 export const toggleCaptureStatus = pokemon => {
   return {
     type: TOGGLE_CAPTURE_STATUS,
+    pokemon
+  }
+}
+
+export const toggleHovering = pokemon => {
+  return {
+    type: TOGGLE_HOVERING,
     pokemon
   }
 }

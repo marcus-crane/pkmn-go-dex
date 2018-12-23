@@ -2,7 +2,8 @@ import {
   FETCH_POKEDEX_FAILURE,
   FETCH_POKEDEX_REQUEST,
   FETCH_POKEDEX_SUCCESS,
-  TOGGLE_CAPTURE_STATUS
+  TOGGLE_CAPTURE_STATUS,
+  TOGGLE_HOVERING
 } from "../actions/pokedex"
 
 const pokedex = (store = {}, action) => {
@@ -15,6 +16,8 @@ const pokedex = (store = {}, action) => {
     return fetchPokedexFailure(store, action)
   case TOGGLE_CAPTURE_STATUS:
     return toggleCaptureStatus(store, action)
+  case TOGGLE_HOVERING:
+    return toggleHovering(store, action)
   default:
     return store
   }
@@ -44,12 +47,24 @@ const fetchPokedexFailure = (store, action) => {
 }
 
 function toggleCaptureStatus(store, action) {
-  const captureStatus = store.pokedex.pokemon[action.name].caught
+  const captureStatus = store.pokemon[action.pokemon].captured
   return {
     ...store,
-    [action.name]: {
-      captured: !captureStatus
+    pokemon: {
+      ...store.pokemon,
+      [action.pokemon]: {
+        ...store.pokemon[action.pokemon],
+        captured: !captureStatus
+      }
     }
+  }
+}
+
+function toggleHovering(store, action) {
+  return {
+    ...store,
+    hovering: true,
+    ref: action.pokemon
   }
 }
 
