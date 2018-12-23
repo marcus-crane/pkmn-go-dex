@@ -5,10 +5,10 @@ const Nav = () => {
   return (
     <div className="ui fixed inverted menu">
       <div className="ui container">
-        <a href="#" className="header item">
+        <a href="/" className="header item">
           { APP_TITLE }
         </a>
-        { NAV_ITEMS.map((key, item) => <a key={key} href={item.href} className="item">{item.name}</a> )}
+        { NAV_ITEMS.map(item => <a key={item.name} href={item.href} className="item">{item.name}</a> )}
       </div>
     </div>
   )

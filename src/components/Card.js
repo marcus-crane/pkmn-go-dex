@@ -1,17 +1,16 @@
 import React from "react"
 import propTypes from "prop-types"
 
-const Card = (props) => {
+const Card = ({ children }) => {
   return (
-    <div className="card" key={props.key}>
-      {props.children}
+    <div className="card">
+      {children}
     </div>
   )
 }
 
 Card.propTypes = {
-  children: propTypes.element,
-  key: propTypes.string,
+  children: propTypes.array,
 }
 
 export default Card

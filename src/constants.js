@@ -3,10 +3,16 @@ export const APP_TITLE = "Pokemon Go DEX"
 export const COMPLETED_BUTTON_TEXT = "Caught"
 
 export const NAV_ITEMS = [
-  { href: "#", name: "Home" },
-  { href: "#", name: "About" }
+  { href: "/about", name: "About" },
+  { href: "https://github.com/marcus-crane/pkmn-go-dex", name: "Github" }
 ]
 
+export const POKEDEX_LOADING_TEXT = [
+  "Consulting with Professor Oak...",
+  "Notifying Officer Jennie...",
+  "Syncing with Bill's PC..."
+]
+export const POKEDEX_URI = "/pokedex.json"
 export const PKMN_IMG_BASE = "https://serebii.net/pokemongo/pokemon"
 export const PKMN_EVOLVES_TEXT = (candyCount) => `Evolves at ${candyCount} candy`
 export const PKMN_NO_EVOLVE_TEXT = "No evolution"

@@ -6,3 +6,7 @@
 .dimmer-flex > .content > .center > .button {
   margin-top: 2rem;
 }
+
+.ui.cards.cardholder {
+  margin: 3.5em 1em;
+}
