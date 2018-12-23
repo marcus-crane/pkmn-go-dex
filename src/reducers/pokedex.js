@@ -1,15 +1,18 @@
 import {
+  FETCH_POKEDEX_FAILURE,
   FETCH_POKEDEX_REQUEST,
   FETCH_POKEDEX_SUCCESS,
   TOGGLE_CAPTURE_STATUS
 } from "../actions/pokedex"
 
-const pokedex = (store = [], action) => {
+const pokedex = (store = {}, action) => {
   switch(action.type) {
   case FETCH_POKEDEX_REQUEST:
     return fetchPokedexRequest(store)
   case FETCH_POKEDEX_SUCCESS:
     return fetchPokedexSuccess(store, action)
+  case FETCH_POKEDEX_FAILURE:
+    return fetchPokedexFailure(store, action)
   case TOGGLE_CAPTURE_STATUS:
     return toggleCaptureStatus(store, action)
   default:
@@ -29,6 +32,14 @@ const fetchPokedexSuccess = (store, action) => {
     ...store,
     fetching: false,
     pokemon: action.pokemon
+  }
+}
+
+const fetchPokedexFailure = (store, action) => {
+  return {
+    ...store,
+    fetching: false,
+    errorMessage: action.errorMessage
   }
 }
 

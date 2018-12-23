@@ -2,6 +2,17 @@ export const APP_TITLE = "Pokemon Go DEX"
 
 export const COMPLETED_BUTTON_TEXT = "Caught"
 
+export const MOCK_POKEDEX_ENTRY = {
+  Bulbasaur: {
+    captured: false,
+    evolves: 25,
+    name: "Bulbasaur",
+    number: "001",
+    image: "https://serebii.net/pokemongo/pokemon/001.png",
+    type: "Grass / Poison"
+  }
+}
+
 export const NAV_ITEMS = [
   { href: "/about", name: "About" },
   { href: "https://github.com/marcus-crane/pkmn-go-dex", name: "Github" }

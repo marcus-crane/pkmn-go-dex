@@ -20,9 +20,10 @@ export const fetchPokedexSuccess = (pokemon) => {
   }
 }
 
-export const fetchPokedexFailure = () => {
+export const fetchPokedexFailure = (error) => {
   return {
-    type: FETCH_POKEDEX_FAILURE
+    type: FETCH_POKEDEX_FAILURE,
+    error
   }
 }
 
