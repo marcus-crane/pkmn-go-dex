@@ -1,9 +1,11 @@
 import json
+import os
 from bs4 import BeautifulSoup
 import requests
 
 pokemon = {}
 
+dirpath = os.path.dirname(os.path.realpath(__file__))
 url = 'https://serebii.net/pokemongo/pokemon.shtml'
 table_selector = 'table:nth-of-type(6) > tr'
 
@@ -43,5 +45,5 @@ for index, row in enumerate(soup.select(table_selector)):
     if 'km' in egg_distance:
       pokemon['egg_distance'] = int(egg_distance.replace('km', '').strip())
 print(results)
-with open('../public/pokedex.json', 'w') as file:
+with open(dirpath + '/../public/pokedex.json', 'w') as file:
   json.dump(results, file, indent=2)
